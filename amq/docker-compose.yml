@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  amq:
+    image: registry.access.redhat.com/jboss-amq-6/amq63-openshift:1.4-48
+    ports:
+      - "61616"
+      - "8161:8161"
+    volumes:
+      - ./src/jetty-realm.properties:/opt/amq/conf/jetty-realm.properties
+      - ./src/jetty.xml:/opt/amq/conf/jetty.xml
+      - ./src/openshift-activemq.xml:/opt/amq/conf/openshift-activemq.xml
